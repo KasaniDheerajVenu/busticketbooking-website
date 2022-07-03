@@ -1,0 +1,34 @@
+{% extends 'myapp/base.html' %}
+{% block content %}
+<div class="container" >
+    <center><h2 style="margin-top: 70px; background-color:darkorange;color: white">Welcome to TRAV3L BOOKINGS</h2></center>
+        <div class="row">
+            <div class="col-sm-6 mx-auto" style="margin-top: 70px">
+                <h2 style="color:firebrick;text-align:center;">Log in</h2>
+
+                <form action="{% url 'signin' %}" method="post" style="color:white">
+                    {% csrf_token %}
+                    <div class="form-group row">
+                        <label style="color:white ;font-family: Georgia, 'Times New Roman', Times, serif;" for="example-email-input" class="col-2 col-form-label" >Username:</label>
+                        <div class="col-10">
+                            <input name='name' class="form-control" type="text" id="example-email-input">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="example-email-input" class="col-2 col-form-label" style="color:white ;font-family: Georgia, 'Times New Roman', Times, serif;">Password:</label>
+                        <div class="col-10">
+                            <input name='password' class="form-control" type="password">
+                        </div>
+                    </div>
+                    <div class="pull-right">
+                        <button type="Submit" class="btn btn-success float-right">Sign in</button>
+                    </div>
+
+                </form>
+                <p style="color:white">{{error}}</p>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

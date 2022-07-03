@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <title>TRAV3L</title>
+     {%load static %}
+            <link rel="stylesheet" href="{%static 'trav3lstyle.css'%}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkorchid" >
+    <div class="container">
+        <img src="{%static 'TRAV3L!.png'%}" class="mainimg">
+        <a class="navbar-brand" href="#" style="color: white;padding:30px">BUS BOOKING SYSTEM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="float: right;list-style: none; margin-top: 10px; display: inline-block;
+    background-color:transparent;">
+            <div class="navbar-nav" >
+                <a class="nav-item nav-link active" href="{% url 'home' %}" style="color: antiquewhite;text-decoration: none;padding: 5px 10px;font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 16px;text-transform: uppercase; border-radius: 10em;" >Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="{% url 'findbus' %}" style="color: antiquewhite;text-decoration: none;padding: 5px 10px;font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 16px;text-transform: uppercase; border-radius: 10em;">Find Bus</a>
+                <a class="nav-item nav-link" href="{% url 'seebookings' %}" style="color: antiquewhite;text-decoration: none;padding: 5px 10px;font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 16px;text-transform: uppercase; border-radius: 10em;">My Bookings</a>
+                {% if request.user.is_active %}
+                <a class="nav-item nav-link " href="{% url 'signout' %}" style="color: antiquewhite;text-decoration: none;padding: 5px 10px;font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 16px;text-transform: uppercase; border-radius: 10em;">Sign out</a>
+                {% else %}
+                <a class="nav-item nav-link " href="{% url 'signup' %}" style="color: antiquewhite;text-decoration: none;padding: 5px 10px;font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 16px;text-transform: uppercase; border-radius: 10em;">Sign Up</a>
+                {% endif %}
+                <a href="#title" style="color: antiquewhite;text-decoration: none;padding: 5px 10px;font-family: Verdana, Geneva, Tahoma, sans-serif;font-size: 16px;text-transform: uppercase; border-radius: 10em;">CONTACT US</a>
+
+
+            </div>
+        </div>
+    </div>
+</nav>
+{% block content %}
+{% endblock %}
+
+<marquee onmouseover="this.stop();" onmouseout="this.start();" style="font-style: italic;" scrolldelay="10" behavior="scroll" >
+            <div class="wrap">
+                <div>
+                    <ul class="nav-area" >
+                        <li>
+                            <a href="#">
+                                <p>Get upto 50% off on bus tickets</p>
+                                <img class="new" src="{%static 'NEW.png'%}" alt="">
+                                <p>USE CODE NEW</p>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="#">
+                                <p>Get 30% off on bus tickets </p>
+                                <img class="new" src="{%static 'tr.png'%}" >
+                                <p> On first 5 bookings</p>
+                            </a>
+                        </li>
+                        <li >
+                            <a href="#">
+                                <p>Get flat 300 off on bus tickets</p>
+                                <img class="new" src="{%static 'j300.png'%}" >
+                                <p>USE CODE JUNE300</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </marquee>
+        <div class="wrapper">
+            <div class="title" id="title">
+                <img src="{%static 'contact.jpg' %}" style="width:500px;height:100px">
+              <h1>contact us form</h1>
+            </div>
+            <div class="contact-form">
+              <div class="input-fields">
+                <input type="text" class="input" placeholder="Name">
+                <input type="text" class="input" placeholder="Email Address">
+                <input type="text" class="input" placeholder="Phone">
+                <input type="text" class="input" placeholder="Subject">
+              </div>
+              <div class="msg">
+                <textarea placeholder="Message"></textarea>
+                <div class="btn">send</div>
+              </div>
+            </div>
+          </div>
+</body>
+</html>
